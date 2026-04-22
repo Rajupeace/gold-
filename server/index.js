@@ -14,6 +14,17 @@ app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// DB Status Middleware
+app.use((req, res, next) => {
+    if (mongoose.connection.readyState !== 1 && !req.path.startsWith('/uploads')) {
+        return res.status(503).json({ 
+            message: "Database not connected. Please check your MONGODB_URI in Render settings.",
+            status: "DB_DISCONNECTED"
+        });
+    }
+    next();
+});
+
 // Admin Seeding
 const seedAdmin = async () => {
     try {
