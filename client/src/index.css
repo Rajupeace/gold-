@@ -258,3 +258,9 @@ body {
 .loading-spinner {
   animation: spin 1s linear infinite;
 }
+
+/* Skeleton animation */
+@keyframes skeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
