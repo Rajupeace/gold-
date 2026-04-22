@@ -59,11 +59,10 @@ const seedAdmin = async () => {
 // MongoDB Connection
 const connectDB = async () => {
     try {
-        let uri = process.env.MONGODB_URI;
-        if (!uri || uri.includes('localhost')) {
-            console.log('⚠️ Local MongoDB not found, starting In-Memory Database...');
-            const mongoServer = await MongoMemoryServer.create();
-            uri = mongoServer.getUri();
+        const uri = process.env.MONGODB_URI;
+        if (!uri) {
+            console.error('❌ MONGODB_URI is missing! Please set it in Vercel environment variables.');
+            return;
         }
         await mongoose.connect(uri);
         console.log('✅ MongoDB Connected');
