@@ -1,3 +1,4 @@
+import { getImageUrl } from '@/utils/urls';
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShoppingCart, Heart, ShieldCheck, Truck, RefreshCcw, Star, Plus, Minus, MessageCircle, X, Sparkles, ArrowLeft, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
@@ -6,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import SEO from '../components/common/SEO';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
@@ -74,10 +75,7 @@ const ProductDetails = () => {
         }
     };
 
-    const getImageUrl = (path) => {
-        if (!path) return 'https://via.placeholder.com/600x600?text=No+Image';
-        return path.startsWith('http') ? path : `${path}`;
-    };
+    
 
     if (!product) return <div style={{padding: '200px', textAlign: 'center'}}>Loading...</div>;
 
@@ -766,3 +764,4 @@ const styles = {
 };
 
 export default ProductDetails;
+

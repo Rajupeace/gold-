@@ -1,8 +1,9 @@
+import { getImageUrl } from '@/utils/urls';
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/product/ProductCard';
 import { Search, Filter, ChevronDown, Layers, DollarSign, Clock, X, Star, ShoppingCart, Eye, ArrowLeft } from 'lucide-react';
 import SEO from '../components/common/SEO';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -24,10 +25,7 @@ const ProductListing = () => {
         setIsQuickViewOpen(true);
     };
 
-    const getImageUrl = (path) => {
-        if (!path) return 'https://via.placeholder.com/600x600?text=No+Image';
-        return path.startsWith('http') ? path : `${path}`;
-    };
+    
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
@@ -352,3 +350,4 @@ const styles = {
 };
 
 export default ProductListing;
+

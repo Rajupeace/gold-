@@ -16,9 +16,16 @@ services:
         sync: false
 
   # Frontend
-  - type: web
+  - type: static_site
     name: gold-frontend
     env: static
     rootDir: client
     buildCommand: npm install && npm run build
-    staticPublishPath: dist    
+    publishDir: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://gold-backend-ob9o.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

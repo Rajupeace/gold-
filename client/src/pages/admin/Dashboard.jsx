@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Package, Users, ShoppingCart, DollarSign, ArrowUpRight, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { useAuth } from '../../context/AuthContext';
 
 const Dashboard = () => {

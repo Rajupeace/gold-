@@ -4,7 +4,7 @@ import { ShoppingBag, Heart, User, MapPin, Settings, LogOut, ChevronRight, FileT
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from '@/api/axios';
 import SEO from '../components/common/SEO';
 
 const UserDashboard = () => {

@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { CreditCard, Truck, ShieldCheck, ArrowLeft, CheckCircle2, MapPin, Package, Wallet, ChevronRight, Plus, Gift } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Checkout = () => {

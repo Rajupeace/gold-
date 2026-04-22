@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Package, Truck, CheckCircle, XCircle, Search, Eye, ExternalLink, MessageSquare } from 'lucide-react';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { useAuth } from '../../context/AuthContext';
 
 const OrderManagement = () => {

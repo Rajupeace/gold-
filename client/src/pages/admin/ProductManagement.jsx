@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2, Search, X, Camera, Link as LinkIcon, Star } from 'lucide-react';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { useAuth } from '../../context/AuthContext';
 
 const ProductManagement = () => {

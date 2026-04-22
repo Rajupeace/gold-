@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, ArrowRight, ShieldCheck, ArrowLeft, Key, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { toast } from 'react-toastify';
 
 const ForgotPassword = () => {

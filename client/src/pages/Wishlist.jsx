@@ -1,3 +1,4 @@
+import { getImageUrl } from '@/utils/urls';
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import ProductCard from '../components/product/ProductCard';
@@ -17,10 +18,7 @@ const Wishlist = () => {
         setIsQuickViewOpen(true);
     };
 
-    const getImageUrl = (path) => {
-        if (!path) return 'https://via.placeholder.com/600x600?text=No+Image';
-        return path.startsWith('http') ? path : `${path}`;
-    };
+    
 
     if (wishlist.length === 0) {
         return (
@@ -147,3 +145,4 @@ const styles = {
 };
 
 export default Wishlist;
+

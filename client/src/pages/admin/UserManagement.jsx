@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Mail, Shield, Calendar, Trash2, Search, Smartphone } from 'lucide-react';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+import axios from '@/api/axios';
 import { useAuth } from '../../context/AuthContext';
 
 const UserManagement = () => {
