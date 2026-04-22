@@ -15,7 +15,7 @@ services:
         sync: false
 
   # Frontend
-  - type: static
+  - type: static_site
     name: gold-frontend
     env: static
     rootDir: client
