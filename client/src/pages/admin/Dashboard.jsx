@@ -19,7 +19,7 @@ const Dashboard = () => {
                 const config = {
                     headers: { Authorization: `Bearer ${user.token}` }
                 };
-                const { data } = await axios.get('http://localhost:5000/api/orders/stats', config);
+                const { data } = await axios.get('/api/orders/stats', config);
                 
                 const formattedStats = [
                     { label: 'Total Revenue', value: `$${data.stats.totalRevenue.toLocaleString()}`, icon: <DollarSign size={24}/>, color: '#4caf50' },
@@ -126,7 +126,7 @@ const Dashboard = () => {
                                         <tr key={order._id}>
                                             <td>
                                                 <img 
-                                                    src={order.items[0]?.images && order.items[0]?.images[0] ? (order.items[0].images[0].startsWith('http') ? order.items[0].images[0] : `http://localhost:5000${order.items[0].images[0]}`) : 'https://via.placeholder.com/40x40'} 
+                                                    src={order.items[0]?.images && order.items[0]?.images[0] ? (order.items[0].images[0].startsWith('http') ? order.items[0].images[0] : `${order.items[0].images[0]}`) : 'https://via.placeholder.com/40x40'} 
                                                     alt="" 
                                                     style={{width: '40px', height: '40px', borderRadius: '4px', objectFit: 'cover'}}
                                                 />
@@ -169,7 +169,7 @@ const Dashboard = () => {
                         {stats.lowStockProducts?.length > 0 ? stats.lowStockProducts.map(p => (
                             <div key={p._id} style={styles.alertItem}>
                                 <img 
-                                    src={p.images && p.images[0] ? (p.images[0].startsWith('http') ? p.images[0] : `http://localhost:5000${p.images[0]}`) : 'https://via.placeholder.com/40x40'} 
+                                    src={p.images && p.images[0] ? (p.images[0].startsWith('http') ? p.images[0] : `${p.images[0]}`) : 'https://via.placeholder.com/40x40'} 
                                     alt="" 
                                     style={{width: '40px', height: '40px', borderRadius: '4px', objectFit: 'cover'}}
                                 />

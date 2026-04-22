@@ -13,11 +13,11 @@ const ProductCard = ({ product, onQuickView }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     const imageUrl = product.images && product.images[0]
-        ? (product.images[0].startsWith('http') ? product.images[0] : `http://localhost:5000${product.images[0]}`)
+        ? (product.images[0].startsWith('http') ? product.images[0] : `${product.images[0]}`)
         : 'https://via.placeholder.com/400x400?text=No+Image';
 
     const hoverImageUrl = product.images && product.images[1]
-        ? (product.images[1].startsWith('http') ? product.images[1] : `http://localhost:5000${product.images[1]}`)
+        ? (product.images[1].startsWith('http') ? product.images[1] : `${product.images[1]}`)
         : imageUrl;
 
     const shareUrl = `http://localhost:5173/product/${product._id}`;

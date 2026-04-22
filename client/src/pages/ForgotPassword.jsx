@@ -18,7 +18,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const { data } = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+            const { data } = await axios.post('/api/auth/forgot-password', { email });
             toast.success(data.message);
             setStep(2);
         } catch (error) {
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
         }
         setLoading(true);
         try {
-            const { data } = await axios.post('http://localhost:5000/api/auth/reset-password', { 
+            const { data } = await axios.post('/api/auth/reset-password', { 
                 email, 
                 otp, 
                 newPassword 

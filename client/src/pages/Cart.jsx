@@ -50,7 +50,7 @@ const Cart = () => {
                             >
                                 <div style={styles.itemInfo}>
                                     <div style={styles.imgWrapper}>
-                                        <img src={item.images[0].startsWith('http') ? item.images[0] : `http://localhost:5000${item.images[0]}`} alt={item.name} style={styles.itemImg} />
+                                        <img src={item.images[0].startsWith('http') ? item.images[0] : `${item.images[0]}`} alt={item.name} style={styles.itemImg} />
                                     </div>
                                     <div style={styles.details}>
                                         <h3 style={styles.itemName}>{item.name}</h3>

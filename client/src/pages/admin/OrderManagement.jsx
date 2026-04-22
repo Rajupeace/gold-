@@ -21,7 +21,7 @@ const OrderManagement = () => {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
-            const { data } = await axios.get('http://localhost:5000/api/orders', config);
+            const { data } = await axios.get('/api/orders', config);
             setOrders(data);
             setLoading(false);
         } catch (error) {
@@ -35,7 +35,7 @@ const OrderManagement = () => {
             const config = {
                 headers: { Authorization: `Bearer ${user.token}` }
             };
-            await axios.put(`http://localhost:5000/api/orders/${id}/status`, { orderStatus: newStatus }, config);
+            await axios.put(`/api/orders/${id}/status`, { orderStatus: newStatus }, config);
             setOrders(orders.map(o => o._id === id ? { ...o, orderStatus: newStatus } : o));
             toast.success(`Order status updated to ${newStatus}`);
         } catch (error) {

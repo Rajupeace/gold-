@@ -41,7 +41,7 @@ const Checkout = () => {
 
     const fetchAddresses = async () => {
         try {
-            const { data } = await axios.get('http://localhost:5000/api/auth/addresses', {
+            const { data } = await axios.get('/api/auth/addresses', {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             setSavedAddresses(data);
@@ -70,7 +70,7 @@ const Checkout = () => {
     const handleAddNewAddress = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:5000/api/auth/address', formData, {
+            const { data } = await axios.post('/api/auth/address', formData, {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
             setSavedAddresses(data);
@@ -117,7 +117,7 @@ const Checkout = () => {
             }));
 
             // 1. Create order on backend
-            const { data: orderData } = await axios.post('http://localhost:5000/api/orders', {
+            const { data: orderData } = await axios.post('/api/orders', {
                 items: formattedItems,
                 totalAmount: cartTotal,
                 shippingAddress: formData,
@@ -141,7 +141,7 @@ const Checkout = () => {
                             };
 
                             const { data: verifyResponse } = await axios.post(
-                                'http://localhost:5000/api/orders/verify',
+                                '/api/orders/verify',
                                 verifyData,
                                 { headers: { Authorization: `Bearer ${user.token}` } }
                             );
@@ -178,7 +178,7 @@ const Checkout = () => {
                             };
 
                             const { data: verifyResponse } = await axios.post(
-                                'http://localhost:5000/api/orders/verify',
+                                '/api/orders/verify',
                                 verifyData,
                                 { headers: { Authorization: `Bearer ${user.token}` } }
                             );
@@ -452,7 +452,7 @@ const Checkout = () => {
                                         <h3 style={{marginBottom: '1rem'}}>Items</h3>
                                         {cart.map(item => (
                                             <div key={item._id} style={styles.reviewItem}>
-                                                <img src={item.images[0].startsWith('http') ? item.images[0] : `http://localhost:5000${item.images[0]}`} alt="" style={styles.reviewImg} />
+                                                <img src={item.images[0].startsWith('http') ? item.images[0] : `${item.images[0]}`} alt="" style={styles.reviewImg} />
                                                 <div style={{flex: 1}}>
                                                     <div style={styles.itemName}>{item.name}</div>
                                                     <div style={styles.itemQty}>Quantity: {item.quantity}</div>

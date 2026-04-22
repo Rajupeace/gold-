@@ -21,7 +21,7 @@ const UserDashboard = () => {
                 const config = {
                     headers: { Authorization: `Bearer ${user.token}` }
                 };
-                const { data } = await axios.get('http://localhost:5000/api/orders/myorders', config);
+                const { data } = await axios.get('/api/orders/myorders', config);
                 setOrders(data);
                 setLoading(false);
             } catch (error) {
@@ -109,7 +109,7 @@ const UserDashboard = () => {
                                     {cart.map((item, idx) => (
                                         <div key={idx} style={styles.cartItemMini}>
                                             <img 
-                                                src={item.images && item.images[0] ? (item.images[0].startsWith('http') ? item.images[0] : `http://localhost:5000${item.images[0]}`) : 'https://via.placeholder.com/60'} 
+                                                src={item.images && item.images[0] ? (item.images[0].startsWith('http') ? item.images[0] : `${item.images[0]}`) : 'https://via.placeholder.com/60'} 
                                                 alt={item.name} 
                                                 style={styles.cartThumb} 
                                             />

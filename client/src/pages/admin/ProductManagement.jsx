@@ -21,7 +21,7 @@ const ProductManagement = () => {
 
     const fetchProducts = async () => {
         try {
-            const { data } = await axios.get('http://localhost:5000/api/products');
+            const { data } = await axios.get('/api/products');
             setProducts(data);
             setLoading(false);
         } catch (error) {
@@ -106,10 +106,10 @@ const ProductManagement = () => {
             });
 
             if (editingProduct) {
-                await axios.put(`http://localhost:5000/api/products/${editingProduct._id}`, data, config);
+                await axios.put(`/api/products/${editingProduct._id}`, data, config);
                 toast.success("Jewelry updated!");
             } else {
-                await axios.post('http://localhost:5000/api/products', data, config);
+                await axios.post('/api/products', data, config);
                 toast.success("Added to boutique!");
             }
             setIsModalOpen(false);
@@ -125,7 +125,7 @@ const ProductManagement = () => {
                 const config = {
                     headers: { Authorization: `Bearer ${user.token}` }
                 };
-                await axios.delete(`http://localhost:5000/api/products/${id}`, config);
+                await axios.delete(`/api/products/${id}`, config);
                 toast.error("Product removed from inventory");
                 fetchProducts();
             } catch (error) {
@@ -149,7 +149,7 @@ const ProductManagement = () => {
                         <div key={p._id} style={styles.productCard}>
                             <div style={styles.cardImageContainer}>
                                 <img 
-                                    src={p.images && p.images[0] ? (p.images[0].startsWith('http') ? p.images[0] : `http://localhost:5000${p.images[0]}`) : 'https://via.placeholder.com/200'} 
+                                    src={p.images && p.images[0] ? (p.images[0].startsWith('http') ? p.images[0] : `${p.images[0]}`) : 'https://via.placeholder.com/200'} 
                                     alt={p.name} 
                                     style={styles.cardImage} 
                                 />
@@ -244,7 +244,7 @@ const ProductManagement = () => {
                                     <div style={styles.previewGrid}>
                                         {imageUrls.map((url, idx) => (
                                         <div key={`url-${idx}`} style={styles.previewCard}>
-                                            <img src={url.startsWith('http') ? url : `http://localhost:5000${url}`} alt="" style={styles.previewImg} />
+                                            <img src={url.startsWith('http') ? url : `${url}`} alt="" style={styles.previewImg} />
                                             <div style={styles.previewActions}>
                                                 <button 
                                                     onClick={() => {

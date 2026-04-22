@@ -26,7 +26,7 @@ const ProductListing = () => {
 
     const getImageUrl = (path) => {
         if (!path) return 'https://via.placeholder.com/600x600?text=No+Image';
-        return path.startsWith('http') ? path : `http://localhost:5000${path}`;
+        return path.startsWith('http') ? path : `${path}`;
     };
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const ProductListing = () => {
 
         const fetchProducts = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/products');
+                const { data } = await axios.get('/api/products');
                 setProducts(data);
                 setFilteredProducts(data);
                 setLoading(false);
