@@ -72,9 +72,9 @@ const seedAdmin = async () => {
 // MongoDB Connection
 const connectDB = async () => {
     try {
-        const uri = process.env.MONGODB_URI;
+        const uri = process.env.MONGODB_URI || process.env.MONGO_URL || process.env.MONGODB_URL;
         if (!uri) {
-            console.error('❌ MONGODB_URI is missing! Please set it in Vercel environment variables.');
+            console.error('❌ MONGODB_URI / MONGO_URL is missing! Please set it in your hosting environment variables (Railway/Render/Vercel).');
             return;
         }
         await mongoose.connect(uri);
