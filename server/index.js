@@ -14,6 +14,9 @@ app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// Health Check
+app.get('/health', (req, res) => res.json({ status: 'OK', timestamp: new Date() }));
+
 // DB Status Middleware
 app.use((req, res, next) => {
     if (mongoose.connection.readyState !== 1 && !req.path.startsWith('/uploads')) {
