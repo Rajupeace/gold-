@@ -1,6 +1,6 @@
-import axios from '@/api/axios';
+import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://gold-backend-ob9o.onrender.com';
+const API_URL = '';
 
 const instance = axios.create({
     baseURL: API_URL

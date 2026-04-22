@@ -1,31 +1,17 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "client/dist" }
+      "source": "/api/(.*)",
+      "destination": "https://gold-backend-ob9o.onrender.com/api/$1"
     },
     {
-      "src": "server/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/index.js"
+      "source": "/uploads/(.*)",
+      "destination": "https://gold-backend-ob9o.onrender.com/uploads/$1"
     },
     {
-      "src": "/uploads/(.*)",
-      "dest": "server/uploads/$1"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/$1"
     }
   ]
 }
