@@ -88,8 +88,8 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: 'Something went wrong!', error: err.message });
 });
 
-// For local development
-if (process.env.NODE_ENV !== 'production') {
+// For local development or non-Vercel platforms (like Render)
+if (!process.env.VERCEL) {
     app.listen(PORT, () => {
         console.log(`🚀 Server running on port ${PORT}`);
     });
