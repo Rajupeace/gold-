@@ -99,7 +99,7 @@ exports.sendWelcome = async (userEmail, userName) => {
                         <p style="font-size: 16px; line-height: 1.6; color: #9a9a9a;">Your journey into the world of exquisite gold and diamonds begins now. We are delighted to have you as part of our prestigious community.</p>
                         <p style="font-size: 16px; line-height: 1.6; color: #9a9a9a;">Explore our collections and find the piece that speaks to your legacy.</p>
                         <div style="margin-top: 30px; padding: 20px; border-top: 1px solid #1a1a1a;">
-                            <a href="http://localhost:5173" style="background-color: #e29c81; color: #000000; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; text-transform: uppercase; font-size: 14px;">Explore Collection</a>
+                            <a href="${process.env.CLIENT_URL || 'https://gold-neon-sigma.vercel.app'}" style="background-color: #e29c81; color: #000000; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold; text-transform: uppercase; font-size: 14px;">Explore Collection</a>
                         </div>
                     </div>
                 </div>
