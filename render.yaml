@@ -2,6 +2,7 @@ services:
   # Backend
   - type: web
     name: gold-backend
+    plan: free
     env: node
     rootDir: server
     buildCommand: npm install
