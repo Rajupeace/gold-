@@ -1,5 +1,5 @@
 {
-  "name": "gold",
+  "name": "evergreen-gold",
   "version": "1.0.0",
   "description": "A premium gold jewelry e-commerce platform built with React, Node.js, and MongoDB.",
   "main": "index.js",

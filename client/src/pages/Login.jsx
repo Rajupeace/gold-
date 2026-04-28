@@ -42,7 +42,7 @@ const Login = () => {
                 style={styles.card}
             >
                 <div style={styles.branding}>
-                    <h1 style={{...styles.logo, fontFamily: "'Playfair Display', serif", letterSpacing: '2px'}}>EVERGREEN <span className="gold-text">ELEGANCE</span></h1>
+                    <h1 style={{...styles.logo, fontFamily: "'Playfair Display', serif", letterSpacing: '2px'}}>EVERGREEN <span className="gold-text">GOLD</span></h1>
                     <div style={styles.divider}></div>
                 </div>
 
@@ -74,7 +74,7 @@ const Login = () => {
                             <Mail size={18} style={styles.icon} />
                             <input 
                                 type="email" 
-                                placeholder={role === 'admin' ? "admin@evergreen-elegance.com" : "your@email.com"} 
+                                placeholder={role === 'admin' ? "admin@evergreen-gold.com" : "your@email.com"} 
                                 style={styles.input} 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}

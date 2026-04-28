@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="container" style={styles.grid}>
                 {/* About */}
                 <div style={styles.section}>
-                    <h3 style={{...styles.title, fontFamily: "'Playfair Display', serif"}}>EVERGREEN ELEGANCE</h3>
+                    <h3 style={{...styles.title, fontFamily: "'Playfair Display', serif"}}>EVERGREEN GOLD</h3>
                     <p style={styles.text}>
                         Exquisite gold jewelry crafted for the moments that matter. 
                         Our legacy of purity and design spans decades.
@@ -55,13 +55,13 @@ const Footer = () => {
                     </div>
                     <div style={styles.contactItem}>
                         <MailIcon size={18} style={styles.icon} />
-                        <span>concierge@evergreen-elegance.com</span>
+                        <span>concierge@evergreen-gold.com</span>
                     </div>
                 </div>
             </div>
             
             <div style={styles.bottom}>
-                <p>&copy; {new Date().getFullYear()} Evergreen Elegance. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Evergreen Gold. All rights reserved.</p>
             </div>
         </footer>
     );

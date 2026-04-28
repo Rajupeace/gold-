@@ -1,4 +1,4 @@
-# Evergreen Elegance - Deployment Guide
+# Evergreen Gold - Deployment Guide
 
 Your full-stack jewelry boutique is now deployed using a high-performance **Unified Architecture**. This setup combines the best of both worlds: Vercel for the lightning-fast frontend and Render for the powerful, persistent backend.
 
@@ -6,10 +6,6 @@ Your full-stack jewelry boutique is now deployed using a high-performance **Unif
 
 ## 🌐 The Master Link
 **Primary Website:** [https://gold-neon-sigma.vercel.app](https://gold-neon-sigma.vercel.app)
-
-> [!IMPORTANT]
-> **Why this link?**
-> Even though you have two platforms (Vercel and Render), I have configured Vercel to act as the "bridge." When you visit the Vercel link, it now invisibly handles your database and API requests through Render. This ensures you have **one single URL** for your entire business.
 
 ---
 
@@ -19,7 +15,7 @@ Your full-stack jewelry boutique is now deployed using a high-performance **Unif
 | :--- | :--- | :--- | :--- |
 | **Frontend** | **Vercel** | [gold-neon-sigma.vercel.app](https://gold-neon-sigma.vercel.app) | Serves the UI, images, and animations. |
 | **Backend** | **Render** | [gold-backend-ob9o.onrender.com](https://gold-backend-ob9o.onrender.com) | Handles orders, payments, and user accounts. |
-| **Database** | **MongoDB Atlas** | (User Provided) | Stores all your precious product and order data. |
+| **Database** | **MongoDB Atlas** | **REQUIRED** | Stores all product and order data. |
 
 ---
 
@@ -31,17 +27,16 @@ For your store to start showing jewelry items, you **must** ensure your Render b
 1.  Log in to [Render Dashboard](https://dashboard.render.com).
 2.  Open the **`gold-backend`** service.
 3.  Go to the **Environment** tab.
-4.  Verify/Add these variables:
-    - `MONGODB_URI`: Your MongoDB Atlas connection string.
-    - `JWT_SECRET`: `EvergreenEleganceSecret2024`
+4.  Add/Edit the following variable:
+    - `MONGODB_URI`: *Your actual MongoDB connection string from Atlas*
+5.  Ensure these are also set:
+    - `JWT_SECRET`: `viva_gold_ultra_secure_secret_2026`
     - `ADMIN_EMAIL`: `admin@viva-gold.com`
     - `ADMIN_PASSWORD`: `Admin@123`
 
 ### 2. Redeploy the Backend
 1.  In the Render dashboard, click **Manual Deploy** > **Clear Cache & Deploy**.
-2.  Wait for the logs to show: `✅ Connected to MongoDB` and `✅ Admin Synchronized`.
-
----
+2.  Once finished, your jewelry will automatically appear on the website.
 
 ## ✨ Features Enabled
 - **Automatic Seeding**: The first time your database connects, the store will automatically fill itself with 20+ premium gold and diamond items.

@@ -2,14 +2,14 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, keywords, image, url }) => {
-    const siteTitle = "Evergreen Elegance | Timeless Shine, Forever Yours";
-    const defaultDescription = "Discover timeless elegance at Evergreen Elegance. High-quality rose gold, diamond, and silver jewelry handcrafted for luxury and sophistication.";
+    const siteTitle = "Evergreen Gold | Timeless Shine, Forever Yours";
+    const defaultDescription = "Discover timeless elegance at Evergreen Gold. High-quality rose gold, diamond, and silver jewelry handcrafted for luxury and sophistication.";
     
     return (
         <Helmet>
-            <title>{title ? `${title} | Evergreen Elegance` : siteTitle}</title>
+            <title>{title ? `${title} | Evergreen Gold` : siteTitle}</title>
             <meta name="description" content={description || defaultDescription} />
-            <meta name="keywords" content={keywords || "evergreen elegance, rose gold jewelry, luxury rings, certified diamonds, timeless shine"} />
+            <meta name="keywords" content={keywords || "evergreen gold, rose gold jewelry, luxury rings, certified diamonds, timeless shine"} />
             
             {/* Open Graph / Facebook */}
             <meta property="og:type" content="website" />

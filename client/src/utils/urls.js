@@ -1,4 +1,3 @@
-const API_URL = '';
+const API_URL = 'https://gold-backend-ob9o.onrender.com';
 
-export 
-
+export default API_URL;

@@ -14,8 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Health Check
-app.get('/health', (req, res) => res.json({ status: 'OK', timestamp: new Date() }));
+
 
 // DB Status Middleware
 app.use((req, res, next) => {
@@ -40,14 +39,14 @@ const seedAdmin = async () => {
         if (!admin) {
             console.log('Creating new admin user...');
             admin = new User({
-                name: 'Evergreen Elegance Admin',
+                name: 'Evergreen Gold Admin',
                 email: process.env.ADMIN_EMAIL || 'admin@viva-gold.com',
                 password: process.env.ADMIN_PASSWORD || 'Admin@123',
                 role: 'admin'
             });
         } else {
             console.log('Updating existing admin user...');
-            admin.name = 'Evergreen Elegance Admin';
+            admin.name = 'Evergreen Gold Admin';
             admin.email = process.env.ADMIN_EMAIL || 'admin@viva-gold.com';
             admin.password = process.env.ADMIN_PASSWORD || 'Admin@123';
         }
@@ -69,23 +68,54 @@ const seedAdmin = async () => {
     }
 };
 
-// MongoDB Connection
-const connectDB = async () => {
+// MongoDB Connection with Retry Logic
+const connectDB = async (retryCount = 5) => {
+    const uri = process.env.MONGODB_URI || process.env.MONGO_URL || process.env.MONGODB_URL;
+    
+    if (!uri || uri.includes('localhost')) {
+        console.warn('⚠️ WARNING: Using local/missing MongoDB URI. If this is production (Render), please set MONGODB_URI in your dashboard.');
+    }
+
     try {
-        const uri = process.env.MONGODB_URI || process.env.MONGO_URL || process.env.MONGODB_URL;
         if (!uri) {
-            console.error('❌ MONGODB_URI / MONGO_URL is missing! Please set it in your hosting environment variables (Railway/Render/Vercel).');
-            return;
+            throw new Error('MONGODB_URI is missing');
         }
-        await mongoose.connect(uri);
-        console.log('✅ MongoDB Connected');
+        await mongoose.connect(uri, {
+            serverSelectionTimeoutMS: 5000, // Timeout after 5s
+        });
+        console.log('✅ MongoDB Connected Successfully');
         await seedAdmin();
     } catch (err) {
-        console.error('❌ MongoDB Connection Error:', err);
+        console.error(`❌ MongoDB Connection Error (Attempts remaining: ${retryCount}):`, err.message);
+        if (retryCount > 0) {
+            console.log('🔄 Retrying in 5 seconds...');
+            setTimeout(() => connectDB(retryCount - 1), 5000);
+        } else {
+            console.error('🛑 Max retries reached. Database remains disconnected.');
+        }
     }
 };
 
 connectDB();
+
+// Enhanced Health Check
+app.get('/health', (req, res) => {
+    const dbState = mongoose.connection.readyState;
+    const states = {
+        0: 'disconnected',
+        1: 'connected',
+        2: 'connecting',
+        3: 'disconnecting',
+        99: 'uninitialized'
+    };
+    
+    res.json({ 
+        status: 'OK', 
+        database: states[dbState] || 'unknown',
+        timestamp: new Date(),
+        environment: process.env.NODE_ENV || 'development'
+    });
+});
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
@@ -93,7 +123,7 @@ app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 
 app.get('/', (req, res) => {
-    res.send('Evergreen Elegance Jewelry API is running...');
+    res.send('Evergreen Gold Jewelry API is running...');
 });
 
 // Error handling middleware

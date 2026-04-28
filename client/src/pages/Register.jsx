@@ -51,7 +51,7 @@ const Register = () => {
                 style={styles.card}
             >
                 <div style={styles.branding}>
-                    <h1 style={{...styles.logo, fontFamily: "'Playfair Display', serif", letterSpacing: '2px'}}>EVERGREEN <span className="gold-text">ELEGANCE</span></h1>
+                    <h1 style={{...styles.logo, fontFamily: "'Playfair Display', serif", letterSpacing: '2px'}}>EVERGREEN <span className="gold-text">GOLD</span></h1>
                     <div style={styles.divider}></div>
                 </div>
 
@@ -143,7 +143,7 @@ const Register = () => {
                     <div style={styles.agreement}>
                         <ShieldCheck size={16} color="var(--color-gold-primary)" />
                         <span style={{fontSize: '0.8rem', color: 'var(--color-text-muted)'}}>
-                            I agree to the terms of the Evergreen Elegance Legacy & Privacy Policy.
+                            I agree to the terms of the Evergreen Gold Legacy & Privacy Policy.
                         </span>
                     </div>
 

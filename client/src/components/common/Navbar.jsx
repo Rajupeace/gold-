@@ -16,7 +16,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <Link to="/" style={styles.logo}>
                     <span style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '3px' }}>
-                        EVERGREEN <span style={{ color: 'var(--color-gold-primary)' }}>ELEGANCE</span>
+                        EVERGREEN <span style={{ color: 'var(--color-gold-primary)' }}>GOLD</span>
                     </span>
                 </Link>
 
